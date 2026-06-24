@@ -1,32 +1,21 @@
-# Bill of Materials — FFB Flight Stick
+# Bill of Materials (BOM)
 
-Prices are rough estimates (each), for planning only. Verify against live listings before buying.
+Force-Feedback Flight Stick — generated from the Onshape "Flight Sim Master Assembly".
 
-## Confirmed parts
+| # | Item | Qty | Source | Unit Price | Link | Notes |
+|---|------|-----|--------|-----------|------|-------|
+| 1 | T-Motor GB54-2 Gimbal Motor (KV26, 3-6S brushless) | 2 | T-Motor | $74.90 | https://store.tmotor.com/product/gb54-2-gimbal-type.html | FFB drive motors (one per axis) |
+| 2 | Spiral Bevel Gear, 1.7M 40T 45 deg | 3 | 3D printed | n/a | (printed) | Bevel differential gears |
+| 3 | goBILDA 3415 HTD Pulley (14mm Bore, 48T) 3415-0014-0048 | 2 | goBILDA | $12.99 | https://www.gobilda.com/3415-series-5mm-htd-pitch-hub-mount-timing-belt-pulley-14mm-bore-48-tooth/ | Driven pulley |
+| 4 | goBILDA 3417 HTD Pinion (8mm REX Bore, 16T) 3417-4008-0016 | 2 | goBILDA | $9.99 | https://www.gobilda.com/3417-series-5mm-htd-pitch-set-screw-pinion-timing-belt-pulley-8mm-rex-bore-16-tooth/ | Motor pinion pulley |
+| 5 | goBILDA 2106 Series 8mm REX Stainless Shaft | 2 | goBILDA | from $3.69 | https://www.gobilda.com/stainless-steel-rex-shafting/ | Pick length to match build |
+| 6 | goBILDA 5mm HTD Timing Belt (9mm width) | 2 | goBILDA | $4.79-$6.99 | https://www.gobilda.com/5mm-htd-timing-belts/ | Pick length for center distance |
+| 7 | goBILDA 1611 Flanged Ball Bearing (8mm REX ID x 14mm OD) | 1 pk | goBILDA | $5.99 / 2-pack | https://www.gobilda.com/1611-series-flanged-ball-bearing-8mm-rex-id-x-14mm-od-5mm-thickness-2-pack/ | Shaft support bearings |
+| 8 | Large axis bearing (verify OD/ID from CAD) | 2 | Amazon | TBD | https://www.amazon.com/s?k=thin+section+turntable+ball+bearing | Confirm size against CAD |
+| 9 | McMaster 97164A116 Heat-Set Insert, M4 x 0.7mm | 1 pk | McMaster-Carr | $8.77 / 25-pack | https://www.mcmaster.com/97164A116/ | For 3D-printed parts |
+| 10 | STM32 B-G431B-ESC1 FOC Motor Driver Board | 2 | DigiKey | $39.53 | https://www.digikey.com/en/products/detail/stmicroelectronics/B-G431B-ESC1/10321670 | One FOC driver per motor |
+| 11 | Bourns PDB181-K415K-103B Potentiometer (10k, linear) | 1 | DigiKey | $1.81 | https://www.digikey.com/en/products/detail/bourns-inc/PDB181-K415K-103B/3820293 | Throttle position sensor |
 
-| Part | Qty | Spec / Notes | Est. each | Source |
-|------|-----|--------------|-----------|--------|
-| Flipsky 5065 270KV sensored BLDC | 2 | Keyed 8mm shaft, N42SH high-temp magnets, JST-ZH 6-pin Hall connector, 4 Nm max torque | \$64 | [flipsky.net](https://flipsky.net/products/bldc-motor) |
-| AS5047P magnetic encoder | 2 | SPI **absolute** mode (true startup zero — critical for differential). Needs 6×2.5mm diametric magnet, non-ferromagnetic holder, 0.5–3mm air gap, centered within 0.5mm | \$8 | [mouser](https://www.mouser.com/c/?q=AS5047P) |
-| 6×2.5mm diametric magnet | 2 | Diametrically magnetized, paired with AS5047P | \$2 | [digikey](https://www.digikey.com) |
-| HTD-5M 15T pinion | 2 | ~4:1 reduction (270KV too high for direct-drive FFB torque) | \$6 | [sdp-si](https://www.sdp-si.com) |
-| HTD-5M 60T pulley | 2 | Output pulley (4:1 with 15T pinion) | \$12 | [sdp-si](https://www.sdp-si.com) |
-| HTD-5M timing belt | 2 | 15mm width to match pulleys | \$5 | [sdp-si](https://www.sdp-si.com) |
-| 6804 bearing (20×27×4) | 12 | Thin-section deep-groove | \$1.50 | — |
-| 6805 bearing (25×37×7) | 2 | Deep-groove | \$2.50 | — |
-| PSU 24V ~150–250W | 1 | Bench/enclosed supply | \$35 | [meanwell](https://www.meanwell.com) |
+**Estimated total (excl. item 8 TBD, qty-adjusted): ~$310.73**
 
-## Hardware to be selected
-
-| Part | Qty | Spec / Notes | Est. each | Status |
-|------|-----|--------------|-----------|--------|
-| STM32 Blackpill F411 | 1 | F411 has **FPU** + enough flash. F103 NOT sufficient (no FPU). Alt: Nucleo F411/F446. | \$8 | To buy — verify |
-| B-G431B-ESC1 (STM32G431) | 2 | Easy SimpleFOC start, integrated current sense. **Caveat:** lower current headroom; community reports fried units under sustained high current. Good for prototyping the 5065s at limited current. | \$40 | Option A — buy 1 to test |
-| DRV8302-class gate driver board | 2 | ~15–25A continuous; better for sustained 5065 torque. Pair with the STM32. Preferred for final build. | \$25 | Option B — final |
-| Anti-backlash miter gear pair (45° shaft, 1:1) | 2 pairs | Differential 90° shaft angle, 1:1 = 45° miter. Anti-backlash strongly preferred (lash at center hurts FFB feel). PIC Design N1-1-AB / N2-1-AB, or SDP/SI angular miter. | \$60 | To buy — verify bore |
-| JST-ZH 6-pin Hall cable | 2 | To match motor Hall connector | \$2 | To buy |
-
-## Notes
-
-- The originally-considered MKS XDrive (ODrive firmware) is no longer needed under SimpleFOC.
-- 270KV is too high for useful direct-drive FFB torque, hence the ~4:1 belt reduction.
+The GB54-2 is a brushless gimbal motor, so it needs a FOC driver with current sensing (the B-G431B-ESC1 above), one per motor.
