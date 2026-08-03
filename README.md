@@ -40,17 +40,28 @@ Signs and scale depend on the final gear arrangement and are TBD.
 
 ## Repo layout
 
-- `BOM.md` — full bill of materials (confirmed + to-be-selected parts, with links)
+- `BOM.csv` — full bill of materials (confirmed + to-be-selected parts, with links)
 - `docs/SOFTWARE.md` — software stack and reference projects
-- `cad/` — CAD / STEP exports (see note below)
-- `firmware/` — SimpleFOC + HID-FFB firmware (WIP)
+- `CAD/` — CAD / STEP exports (see note below)
+- `PCB/` — no custom PCB in this design; see `PCB/README.md`
+- `firmware/` — SimpleFOC per-motor torque control + differential mixing + USB joystick output; HID-PID FFB is not implemented yet (see `firmware/README.md`)
 
 ## CAD
 
 The master assembly lives in Onshape:
 https://cad.onshape.com/documents/8b9e32ec69005829dc7feba2/w/32ad78aac4ca843da7f737c5/e/9393deb6d1ad6c6f61d9f366
 
-STEP files should be exported from Onshape and dropped into `cad/`.
+`CAD/Flight_Sim_Master_Assembly.step` is the current exported snapshot. Re-export from Onshape and replace it whenever the assembly changes — see `CAD/README.md`.
+
+## Status / what's built vs. designed
+
+This is still a work in progress — nothing below has been assembled or run on real hardware yet:
+
+- **Designed, not yet built:** the mechanical assembly (`CAD/`), the BOM (`BOM.csv`).
+- **Written, not yet bench-tested:** the firmware (`firmware/`) — per-motor SimpleFOC torque control, differential mixing, UART link between the master controller and the two motor nodes, and USB joystick output.
+- **Not started:** USB HID-PID force feedback (a sim driving real force effects into the stick) — see `firmware/README.md` "What's not done yet".
+
+Build photos, a wiring/PCB screenshot, and a demo video will go here once there's a physical unit to point a camera at.
 
 ## License
 
