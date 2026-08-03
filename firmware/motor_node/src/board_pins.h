@@ -21,8 +21,7 @@
 #define PIN_ENABLE PB6   // gate driver enable
 #define PIN_FAULT PB10   // gate driver fault flag -- confirm polarity (active low on most designs)
 
-// Reserved for the current-mode FOC upgrade (see firmware/README.md
-// "What's not done yet"). Not read anywhere yet.
+// Reserved for a future current-mode FOC upgrade. Not read anywhere yet.
 #define PIN_CURR_U PB1
 #define PIN_CURR_V PB0
 #define PIN_CURR_W PC5

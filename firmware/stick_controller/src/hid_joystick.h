@@ -16,7 +16,7 @@ namespace ffb {
 // USB joystick.
 //
 // This reports position only. It is NOT the USB HID-PID force-feedback
-// protocol -- see firmware/README.md "What's not done yet".
+// protocol -- no sim effect reaches the motors through this class.
 class HidJoystick {
 public:
     void begin();

@@ -73,8 +73,8 @@ void setup() {
     motor.linkSensor(&encoder);
 
     // Voltage-mode torque control for the initial bring-up -- doesn't need
-    // current sense wired up. See firmware/README.md "What's not done yet"
-    // for the current-mode FOC upgrade path.
+    // current sense wired up. A current-mode FOC upgrade can reuse the
+    // reserved pins in board_pins.h once the shunt/gain values are known.
     motor.torque_controller = TorqueControlType::voltage;
     motor.controller = MotionControlType::torque;
     motor.voltage_limit = 4.0f;  // volts -- raise gradually once bench-tested; do not jump straight to full bus voltage

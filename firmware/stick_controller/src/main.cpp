@@ -9,11 +9,9 @@
 // model, mixes that back into per-motor torque commands, and reports
 // pitch/roll to the PC as a standard USB joystick.
 //
-// This covers build-order stages 1-3 from the top-level README plus a
-// minimal local stage 4: real closed-loop differential force feedback, but
-// not yet a PC/sim-driven USB HID-PID effect engine (see
-// firmware/README.md "What's not done yet"). A sim's native force cues will
-// not reach this stick until that layer exists -- today it only self-centers.
+// This is real closed-loop differential force feedback, but not yet a
+// PC/sim-driven USB HID-PID effect engine -- a sim's native force cues will
+// not reach this stick until that layer exists; today it only self-centers.
 
 using namespace ffb;
 
@@ -25,7 +23,7 @@ HidJoystick joystick;
 // Spring-to-center gains -- start soft and increase gradually once the
 // mechanism is bolted together; too stiff on a loose bench rig just
 // oscillates. Units are whatever `target_torque` means to motor_node today
-// (volts, in voltage-mode torque control -- see firmware/README.md).
+// (volts, since motor_node runs voltage-mode torque control).
 constexpr float kSpringK = 0.6f;
 constexpr float kDamperB = 0.02f;
 
