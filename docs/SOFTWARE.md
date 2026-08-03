@@ -2,8 +2,6 @@
 
 The firmware is built on **SimpleFOC** (a library, not closed firmware) so the differential mixing math can live in user code. There is no turnkey FFB firmware that supports differential mixing, so this is assembled from the references below.
 
-See [`../firmware/README.md`](../firmware/README.md) for the actual implementation status: per-motor torque control and the differential mixing matrix are written, the HID-PID FFB layer described below is not.
-
 ## Core
 
 - **[SimpleFOC / Arduino-FOC](https://github.com/simplefoc/Arduino-FOC)** — per-motor field-oriented torque control. The differential mixing matrix lives in user code on top of this.
