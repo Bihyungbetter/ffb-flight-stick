@@ -23,7 +23,7 @@ bool UartLink::poll(Telemetry& out) {
     bool gotOne = false;
     while (serial_.available()) {
         uint8_t b = (uint8_t)serial_.read();
-        if (have_ == 0 && b != kFrameStart) continue;  // resync on garbage
+        if (have_ == 0 && b != kFrameStart) continue;
         buf_[have_++] = b;
         if (have_ == sizeof(buf_)) {
             TelemetryPacket pkt;
@@ -40,4 +40,4 @@ bool UartLink::poll(Telemetry& out) {
     return gotOne;
 }
 
-}  // namespace ffb
+}

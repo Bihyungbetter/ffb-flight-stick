@@ -16,4 +16,4 @@ AxisAngles unmixAngles(MotorAngles motor) {
     };
 }
 
-}  // namespace ffb
+}

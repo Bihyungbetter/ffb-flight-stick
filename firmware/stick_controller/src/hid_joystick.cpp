@@ -13,7 +13,7 @@ void HidJoystick::begin() {
 #ifdef FFB_HAVE_STM32_JOYSTICK
     Joystick.begin();
 #endif
-    Serial1.begin(115200);  // debug tap -- see class comment in hid_joystick.h
+    Serial1.begin(115200);
 }
 
 void HidJoystick::updateAxes(float pitchNorm, float rollNorm) {
@@ -29,7 +29,7 @@ void HidJoystick::update() {
 #endif
     static uint32_t last = 0;
     uint32_t now = millis();
-    if (now - last > 50) {  // 20 Hz, plenty for a debug readout
+    if (now - last > 50) {
         Serial1.print("pitch=");
         Serial1.print(pitch_, 3);
         Serial1.print(" roll=");
@@ -38,4 +38,4 @@ void HidJoystick::update() {
     }
 }
 
-}  // namespace ffb
+}

@@ -28,12 +28,6 @@ void test_unmix_pure_difference_is_roll() {
     TEST_ASSERT_EQUAL_FLOAT(1.0f, a.roll);
 }
 
-// mixTorques and unmixAngles are NOT inverses of each other -- for a real
-// bevel differential, the torque map is the transpose of the position map,
-// not its inverse (this is what makes the mechanism power-conserving). The
-// invariant that actually has to hold is virtual work:
-//   tau_M0*dM0 + tau_M1*dM1 == F_pitch*dtheta_pitch + F_roll*dtheta_roll
-// where dtheta_pitch/roll are unmixAngles() applied to a motor *velocity*.
 void test_power_conservation() {
     AxisTorques axis{3.0f, -1.5f};
     MotorTorques tau = mixTorques(axis);
