@@ -5,7 +5,7 @@
 "goBILDA 2106 Series 8mm REX Stainless Shaft","2","7.38","https://www.gobilda.com/stainless-steel-rex-shafting/","Price varies with length ($3.69+ each) - pick length to match build"
 "goBILDA 5mm HTD Timing Belt (9mm width)","2","9.58","https://www.gobilda.com/5mm-htd-timing-belts/","Price varies with length ($4.79-$6.99 each) - pick length for center distance"
 "goBILDA 1611 Flanged Ball Bearing (8mm REX ID x 14mm OD)","1 pack (2)","5.99","https://www.gobilda.com/1611-series-flanged-ball-bearing-8mm-rex-id-x-14mm-od-5mm-thickness-2-pack/","Shaft support bearings"
-"McMaster-Carr 6656K238 Thin-Section Steel Ball Bearing (~65mm bore x 85mm OD x 10mm width, open type)","2","TBD","https://www.mcmaster.com/6656K238/","Large axis bearing, now identified directly from CAD: the composite bearing part in the Onshape model references this exact McMaster part number, and its modeled bore/OD match this listing. Price requires a McMaster login to view -- confirm before submission."
+"McMaster-Carr 6656K238 Thin-Section Steel Ball Bearing (~65mm bore x 85mm OD x 10mm width, open type)","2","14.89","https://a.co/d/0fSkMRdf"
 "McMaster 97164A116 Heat-Set Insert, M4 x 0.7mm","1 pack (25)","8.77","https://www.mcmaster.com/97164A116/","For 3D-printed parts"
 "STM32 B-G431B-ESC1 FOC Motor Driver Board","2","79.06","https://www.digikey.com/en/products/detail/stmicroelectronics/B-G431B-ESC1/10321670","One FOC driver per motor"
 "Bourns PDB181-K415K-103B Potentiometer (10k, linear)","1","1.81","https://www.digikey.com/en/products/detail/bourns-inc/PDB181-K415K-103B/3820293","Throttle position sensor"
