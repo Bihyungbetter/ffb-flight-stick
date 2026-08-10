@@ -17,7 +17,8 @@ Here is inspiration that I took. https://www.youtube.com/shorts/7KhpVU0RoAo
 - `BOM.csv` — full bill of materials
 
 ## Pictures
-<img width="3296" height="2547" alt="Flight Sim Master Assembly (2)" src="https://github.com/user-attachments/assets/93809a2e-88e9-4889-a67d-58a259cb773b" />
+<img width="3296" height="2547" alt="Flight Sim Master Assembly (4)" src="https://github.com/user-attachments/assets/09d1983d-284f-40d0-b0bd-5abb75de9913" />
+<img width="3296" height="2547" alt="Flight Sim Master Assembly (3)" src="https://github.com/user-attachments/assets/6021f4fc-b0fd-4586-b654-d1e5381bf1ac" />
 
 
 ## License
