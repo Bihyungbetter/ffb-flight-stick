@@ -14,8 +14,21 @@ Here is inspiration that I took. https://www.youtube.com/shorts/7KhpVU0RoAo
 - `CAD/` — CAD / STEP exports of the mechanical assembly
 - `PCB/` — no custom PCB in this design (off-the-shelf driver boards)
 - `firmware/` — per-motor torque control, differential mixing, and USB joystick output
+- `docs/BUILD.md` — how to build and flash it, and what's still missing to rebuild it from scratch
 - `docs/wiring/` — interconnect harness as WireViz YAML, plus the rendered diagram
-- `BOM.csv` — full bill of materials
+- `BOM.csv` — bill of materials (electronics and hardware; **drivetrain parts are not yet listed** — see [`docs/BUILD.md`](docs/BUILD.md))
+
+## Building
+
+[`docs/BUILD.md`](docs/BUILD.md) covers the toolchain, the build/test/flash
+commands, the differential mixing math, the serial protocol, the tuning
+constants, and a suggested bring-up order.
+
+It also states plainly what this repo does **not** yet contain — no STL
+exports or print settings, no drivetrain parts in the BOM, and an unresolved
+conflict between the 3:1 belt reduction described below and the helical gear
+pair present in the CAD. Someone starting from a clean checkout today can
+build and flash the firmware, but cannot yet build the mechanism.
 
 ## Wiring
 

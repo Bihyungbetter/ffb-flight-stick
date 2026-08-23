@@ -1,6 +1,6 @@
 Id	Description	Qty	Unit	Designators
 1	Cable, 3 x 28 AWG	0.6	m	W_POT
-2	Cable, 3 x 28 AWG shielded	0.8	m	W_UART0, W_UART1
+2	Cable, 3 x 28 AWG shielded	0.8	m	W_LINK0, W_LINK1
 3	Cable, 6 x 28 AWG shielded	0.4	m	W_ENC0, W_ENC1
 4	Connector, AS5047P breakout, absolute magnetic encoder (motor 0), 6 pins	1		ENC0
 5	Connector, AS5047P breakout, absolute magnetic encoder (motor 1), 6 pins	1		ENC1
@@ -10,8 +10,8 @@ Id	Description	Qty	Unit	Designators
 9	Connector, GM5208-24 gimbal motor, 3-phase BLDC (motor 1), 3 pins	1		MOT1
 10	Connector, PC, USB host, 1 pins	1		HOST
 11	Connector, Power distribution, screw terminal / bus bar, 6 pins	1		SPLIT
-12	Connector, ST B-G431B-ESC1, FOC gate driver (motor node 0), 14 pins	1		ESC0
-13	Connector, ST B-G431B-ESC1, FOC gate driver (motor node 1), 14 pins	1		ESC1
+12	Connector, ST B-G431B-ESC1, FOC gate driver (motor node 0), 14 pins	1		DRV0
+13	Connector, ST B-G431B-ESC1, FOC gate driver (motor node 1), 14 pins	1		DRV1
 14	Connector, WeAct Blackpill, STM32F411CEU6 (UFQFPN48), 10 pins	1		MCU
 15	Wire, 18 AWG, BLACK	1.1	m	W_PSU, W_PWR0, W_PWR1
 16	Wire, 18 AWG, BLUE	0.5	m	W_PH0, W_PH1

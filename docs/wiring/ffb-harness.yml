@@ -10,6 +10,20 @@
 # each one, and lists the firmware/BOM discrepancies this diagram surfaced.
 # Do not build from a TBD pin.
 #
+# Designators. The suffix 0/1 always means motor node 0/1, matching link0 and
+# link1 in stick_controller/src/main.cpp:
+#
+#   DRV0 DRV1    FOC driver boards. Named DRV, not ESC, because the part
+#                itself is called "B-G431B-ESC1" — an ESC1 designator would
+#                be ambiguous with the board model.
+#   MOT0 MOT1    Motors
+#   ENC0 ENC1    AS5047P encoders
+#   MCU          Stick controller (Blackpill)
+#   POT          Throttle potentiometer
+#   PSU  SPLIT   12 V supply and its distribution point
+#   HOST         Host PC
+#   W_*          Cables. W_LINK0/W_LINK1 carry the link0/link1 UARTs.
+#
 # Render:  wireviz docs/wiring/ffb-harness.yml
 # Outputs: ffb-harness.svg / .png / .html / .bom.tsv
 
@@ -47,7 +61,7 @@ connectors:
     notes: Star point for the 12 V rail; one supply feeds both nodes.
 
   # --- Motor node 0 -------------------------------------------------------
-  ESC0:
+  DRV0:
     type: ST B-G431B-ESC1
     subtype: FOC gate driver (motor node 0)
     pins:
@@ -86,7 +100,7 @@ connectors:
     notes: Diametric magnet centred on the motor 0 rotor shaft end.
 
   # --- Motor node 1 -------------------------------------------------------
-  ESC1:
+  DRV1:
     type: ST B-G431B-ESC1
     subtype: FOC gate driver (motor node 1)
     pins:
@@ -107,7 +121,7 @@ connectors:
       - J8 SPI MOSI
       - J8 SPI CS (PA4)
     notes: >-
-      Same firmware and pin map as ESC0 — nodes differ only by which
+      Same firmware and pin map as DRV0 — nodes differ only by which
       stick-controller UART they land on.
 
   MOT1:
@@ -201,7 +215,7 @@ cables:
     shield: true
     colors: [RD, BK, YE, GN, BU, WH]
     notes: >-
-      Motor 0 encoder SPI. Shield grounded at the ESC end only. Noise here
+      Motor 0 encoder SPI. Shield grounded at the DRV0 end only. Noise here
       becomes angle glitches that the FOC loop will act on.
 
   W_ENC1:
@@ -211,7 +225,7 @@ cables:
     colors: [RD, BK, YE, GN, BU, WH]
     notes: Motor 1 encoder SPI. Same shielding rules as W_ENC0.
 
-  W_UART0:
+  W_LINK0:
     gauge: 28 AWG
     length: 0.4
     shield: true
@@ -220,12 +234,12 @@ cables:
       921600 baud, stick controller to motor node 0. TX/RX cross over.
       Common GND required.
 
-  W_UART1:
+  W_LINK1:
     gauge: 28 AWG
     length: 0.4
     shield: true
     colors: [OG, BN, BK]
-    notes: 921600 baud, stick controller to motor node 1. Same rules as W_UART0.
+    notes: 921600 baud, stick controller to motor node 1. Same rules as W_LINK0.
 
   W_POT:
     gauge: 28 AWG
@@ -254,46 +268,46 @@ connections:
   -
     - SPLIT: [2, 5]
     - W_PWR0: [1-2]
-    - ESC0: [VIN+, VIN-]
+    - DRV0: [VIN+, VIN-]
 
   -
     - SPLIT: [3, 6]
     - W_PWR1: [1-2]
-    - ESC1: [VIN+, VIN-]
+    - DRV1: [VIN+, VIN-]
 
   # --- Motor phases ---
   -
-    - ESC0: [U, V, W]
+    - DRV0: [U, V, W]
     - W_PH0: [1-3]
     - MOT0: [U, V, W]
 
   -
-    - ESC1: [U, V, W]
+    - DRV1: [U, V, W]
     - W_PH1: [1-3]
     - MOT1: [U, V, W]
 
   # --- Encoder SPI (node 0) ---
   -
-    - ESC0: [TBD-4, TBD-5, TBD-6, TBD-7, TBD-8, TBD-9]
+    - DRV0: [TBD-4, TBD-5, TBD-6, TBD-7, TBD-8, TBD-9]
     - W_ENC0: [1-6]
     - ENC0: ["3V3", GND, CLK, MISO, MOSI, CSn]
 
   # --- Encoder SPI (node 1) ---
   -
-    - ESC1: [TBD-4, TBD-5, TBD-6, TBD-7, TBD-8, TBD-9]
+    - DRV1: [TBD-4, TBD-5, TBD-6, TBD-7, TBD-8, TBD-9]
     - W_ENC1: [1-6]
     - ENC1: ["3V3", GND, CLK, MISO, MOSI, CSn]
 
-  # --- Telemetry / command UART, node 0 (ESC TX -> MCU RX) ---
+  # --- Telemetry / command UART, node 0 (DRV TX -> MCU RX) ---
   -
-    - ESC0: [TBD-1, TBD-2, TBD-3]
-    - W_UART0: [1-3]
+    - DRV0: [TBD-1, TBD-2, TBD-3]
+    - W_LINK0: [1-3]
     - MCU: [PA10, PA9, G1]
 
-  # --- Telemetry / command UART, node 1 (ESC TX -> MCU RX) ---
+  # --- Telemetry / command UART, node 1 (DRV TX -> MCU RX) ---
   -
-    - ESC1: [TBD-1, TBD-2, TBD-3]
-    - W_UART1: [1-3]
+    - DRV1: [TBD-1, TBD-2, TBD-3]
+    - W_LINK1: [1-3]
     - MCU: [TBD-A, TBD-B, G2]
 
   # --- Throttle ---

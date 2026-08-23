@@ -72,7 +72,7 @@ difference is intentional rather than a transcription error. It is also
 inferred from the F411 alternate-function mapping rather than confirmed by
 running the code, so treat it as the likely intent, not established fact.
 
-## 3. The ESC1 pin map may collide with the board's analog front end
+## 3. The driver pin map may collide with the board's analog front end
 
 `firmware/motor_node/src/board_pins.h:16-19` assigns:
 
@@ -94,7 +94,7 @@ from a pinout table read end to end. Two attempts to retrieve UM2516 failed
 it, check **UM2516, Table 4, "Main board STM32G431CB pinout for motor
 control"** against `board_pins.h`, and confirm which signals are actually
 exposed on **J3** (PWM/UART/BEC) and **J8** (motor sensor). Those are the same
-tables that resolve `ESC0:TBD-1` through `TBD-9`.
+tables that resolve `DRV0:TBD-1` through `TBD-9`.
 
 Worth noting that the 6-PWM pins in `board_pins.h` (`PA8`/`PA9`/`PA10` high,
 `PB13`/`PB14`/`PB15` low) do match the standard TIM1 complementary mapping, so
@@ -123,16 +123,16 @@ assignment.
 > `"SimpleFOC Shield V2.0.4","2","18.99"`
 
 But `firmware/motor_node/platformio.ini:3` builds for `board = b_g431b_esc1`,
-`board_pins.h` uses the ESC1's 6-PWM pin map, and `PCB/README.md` states the
+`board_pins.h` uses the B-G431B-ESC1's 6-PWM pin map, and `PCB/README.md` states the
 design uses "2x ST **B-G431B-ESC1** FOC gate-driver boards".
 
-Three sources say ESC1, one says SimpleFOC Shield. The diagram follows the
+Three sources say B-G431B-ESC1, one says SimpleFOC Shield. The diagram follows the
 firmware, since that's the version with actual pin numbers behind it. These are
 not interchangeable — different MCU (G431 vs. whatever host the shield stacks
 on), different pinout, different current sensing. `BOM.csv` also then has no
 line item for the MCU that a SimpleFOC Shield would need.
 
-If ESC1 is correct, `BOM.csv` needs updating — both the part and the price.
+If the B-G431B-ESC1 is correct, `BOM.csv` needs updating — both the part and the price.
 
 ---
 
