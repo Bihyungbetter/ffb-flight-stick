@@ -3,3 +3,6 @@ docs/wiring/*.html
 # Graphviz intermediates
 docs/wiring/*.tmp
 docs/wiring/*.tmp.*
+
+# PlatformIO build artifacts
+.pio/
