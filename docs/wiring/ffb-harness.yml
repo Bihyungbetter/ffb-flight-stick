@@ -141,6 +141,7 @@ connectors:
     notes: >-
       link1 asks for PC10/PC11, which do not exist on UFQFPN48 — NOTES.md #1.
       link0 collides with Serial1 — NOTES.md #2.
+      RX/TX below is the corrected mapping, NOT main.cpp's argument order — #2.
       Throttle has no ADC pin in firmware — NOTES.md #4.
 
   POT:

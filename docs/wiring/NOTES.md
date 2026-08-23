@@ -63,8 +63,14 @@ currently has one assigned twice. Worth allocating all three together.
 alternate-function mapping is the other way round: PA9 is USART1_**TX** and
 PA10 is USART1_**RX**. The STM32 Arduino core resolves the peripheral by
 looking the pin up in `PinMap_UART_RX`, and PA9 isn't in it. The arguments look
-reversed — `link1` has the same pattern. The YAML draws the corrected
-orientation (`PA10` = RX, `PA9` = TX).
+reversed — `link1` has the same pattern.
+
+**The diagram deliberately disagrees with the code here.** `ffb-harness.yml`
+draws the corrected orientation — `PA10` as RX, `PA9` as TX — which is *not*
+what `main.cpp:9` currently requests. If you are cross-checking the two, that
+difference is intentional rather than a transcription error. It is also
+inferred from the F411 alternate-function mapping rather than confirmed by
+running the code, so treat it as the likely intent, not established fact.
 
 ## 3. The ESC1 pin map may collide with the board's analog front end
 

@@ -7,8 +7,8 @@ source of truth; everything else in this folder is generated from it.
 | File | |
 |---|---|
 | [`ffb-harness.yml`](ffb-harness.yml) | Source. Edit this. |
-| [`ffb-harness.svg`](ffb-harness.svg) | Rendered diagram (embedded in the root README) |
-| [`ffb-harness.png`](ffb-harness.png) | Same diagram, raster |
+| [`ffb-harness.svg`](ffb-harness.svg) | Rendered diagram, vector — sharp at any zoom |
+| [`ffb-harness.png`](ffb-harness.png) | Same diagram, raster. This is the one embedded in the root README; GitHub's markdown renderer is unreliable with relative SVG. |
 | [`ffb-harness.bom.tsv`](ffb-harness.bom.tsv) | Wire and connector BOM, auto-generated |
 | [`NOTES.md`](NOTES.md) | Unresolved pins and firmware/BOM discrepancies |
 

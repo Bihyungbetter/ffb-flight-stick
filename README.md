@@ -24,7 +24,9 @@ With no custom PCB, the harness is the interconnect. It's defined as text in
 [WireViz](https://github.com/wireviz/WireViz), so it diffs in git and generates
 its own wire/connector BOM.
 
-![Interconnect harness](docs/wiring/ffb-harness.svg)
+[![Interconnect harness](docs/wiring/ffb-harness.png)](docs/wiring/ffb-harness.svg)
+
+<sub>Click through for the SVG, which stays sharp when zoomed.</sub>
 
 Pins shown as `TBD-n` are genuinely undetermined, not placeholders for
 convenience — see [`docs/wiring/NOTES.md`](docs/wiring/NOTES.md), which also
