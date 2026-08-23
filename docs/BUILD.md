@@ -35,6 +35,14 @@ Five tests in `test/test_mixing/test_mixing.cpp`: pure pitch, pure roll, the
 two inverse cases, and a power-conservation check that the forward and inverse
 transforms are consistent.
 
+> **On how this was verified.** All five tests pass, but they were confirmed by
+> compiling `src/mixing.cpp`, `test/test_mixing/test_mixing.cpp` and Unity
+> directly with g++ and running that binary. `pio test -e native` builds and
+> links correctly, but a local Windows Application Control policy blocked it
+> from executing the binary it had just produced (`WinError 4551`). That
+> restriction is a property of one machine, not of this repo, so the command
+> above is the right one to use — it just hasn't been observed end-to-end here.
+
 ```sh
 # Stick controller
 cd firmware/stick_controller && pio run -e blackpill_f411ce -t upload
