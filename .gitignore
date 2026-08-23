@@ -1,0 +1,5 @@
+# WireViz standalone HTML viewer — regenerate locally with docs/wiring/render.sh
+docs/wiring/*.html
+# Graphviz intermediates
+docs/wiring/*.tmp
+docs/wiring/*.tmp.*

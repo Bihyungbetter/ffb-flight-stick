@@ -14,7 +14,22 @@ Here is inspiration that I took. https://www.youtube.com/shorts/7KhpVU0RoAo
 - `CAD/` — CAD / STEP exports of the mechanical assembly
 - `PCB/` — no custom PCB in this design (off-the-shelf driver boards)
 - `firmware/` — per-motor torque control, differential mixing, and USB joystick output
+- `docs/wiring/` — interconnect harness as WireViz YAML, plus the rendered diagram
 - `BOM.csv` — full bill of materials
+
+## Wiring
+
+With no custom PCB, the harness is the interconnect. It's defined as text in
+[`docs/wiring/ffb-harness.yml`](docs/wiring/ffb-harness.yml) and rendered with
+[WireViz](https://github.com/wireviz/WireViz), so it diffs in git and generates
+its own wire/connector BOM.
+
+![Interconnect harness](docs/wiring/ffb-harness.svg)
+
+Pins shown as `TBD-n` are genuinely undetermined, not placeholders for
+convenience — see [`docs/wiring/NOTES.md`](docs/wiring/NOTES.md), which also
+records five firmware/BOM discrepancies that writing the harness down exposed.
+Two of them block assembly. Read it before cutting wire.
 
 ## Pictures
 <img width="3296" height="2547" alt="Flight Sim Master Assembly (4)" src="https://github.com/user-attachments/assets/09d1983d-284f-40d0-b0bd-5abb75de9913" />
