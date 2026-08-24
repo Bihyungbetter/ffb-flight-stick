@@ -12,6 +12,28 @@ source of truth; everything else in this folder is generated from it.
 | [`ffb-harness.bom.tsv`](ffb-harness.bom.tsv) | Wire and connector BOM, auto-generated |
 | [`NOTES.md`](NOTES.md) | Unresolved pins and firmware/BOM discrepancies |
 
+## Designators
+
+The boxes in the diagram are labelled with conventional electronics
+abbreviations. Spelled out:
+
+| Tag | Stands for | What it is here |
+|---|---|---|
+| `DRV0` `DRV1` | **Driver** | The two FOC gate-driver boards, one per motor. Called `DRV` rather than `ESC` because the part is itself named *B-G431B-ESC1* — an `ESC1` designator would be ambiguous with the board model. |
+| `MOT0` `MOT1` | **Motor** | The two BLDC gimbal motors driving the differential. |
+| `ENC0` `ENC1` | **Encoder** | AS5047P absolute magnetic angle sensors, one per motor. They report rotor angle, which FOC needs to commutate and which the mixing math turns into pitch and roll. |
+| `MCU` | **M**icro**c**ontroller **U**nit | The WeAct Blackpill stick controller. Reads both motor nodes, unmixes their angles into pitch/roll, computes the force feedback, and presents the result to the PC as a USB joystick. Runs `firmware/stick_controller/`. |
+| `POT` | **Pot**entiometer | A variable resistor — the throttle lever slides its wiper along a resistive track, so lever position can be read as a voltage. Here, the Bourns PDB181-K415K-103B, 10 kΩ linear. |
+| `PSU` | **P**ower **S**upply **U**nit | The 12 V DC supply. No specific part is chosen yet — see [`../BUILD.md`](../BUILD.md). |
+| `SPLIT` | *(not an abbreviation)* | The power distribution point, or "star point", where the single 12 V rail splits to feed both driver boards. |
+| `HOST` | USB **host** | Your PC. In USB terminology the host is the machine in charge and the thing plugged into it is the device — so the PC is the host and the stick is the device. |
+| `W_…` | **W**ire | `W` is the conventional designator letter for a cable, so `W_LINK0` is "the cable carrying `link0`". |
+
+The `0`/`1` suffix always means motor node 0 or 1, matching `link0` and `link1`
+in `firmware/stick_controller/src/main.cpp`. There is no separate "node 0" and
+"node 1" firmware build — both driver boards run identical code, and a node is
+only node 0 or node 1 by virtue of which stick-controller UART it's wired to.
+
 ## Read NOTES.md before building
 
 The diagram contains pins labelled `TBD-n`. Those are placeholders for

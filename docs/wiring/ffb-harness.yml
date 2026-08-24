@@ -10,19 +10,30 @@
 # each one, and lists the firmware/BOM discrepancies this diagram surfaced.
 # Do not build from a TBD pin.
 #
-# Designators. The suffix 0/1 always means motor node 0/1, matching link0 and
-# link1 in stick_controller/src/main.cpp:
+# Designators. These are conventional electronics abbreviations, so they are
+# spelled out here rather than assumed. The 0/1 suffix always means motor node
+# 0/1, matching link0 and link1 in stick_controller/src/main.cpp.
 #
-#   DRV0 DRV1    FOC driver boards. Named DRV, not ESC, because the part
-#                itself is called "B-G431B-ESC1" — an ESC1 designator would
-#                be ambiguous with the board model.
-#   MOT0 MOT1    Motors
-#   ENC0 ENC1    AS5047P encoders
-#   MCU          Stick controller (Blackpill)
-#   POT          Throttle potentiometer
-#   PSU  SPLIT   12 V supply and its distribution point
-#   HOST         Host PC
-#   W_*          Cables. W_LINK0/W_LINK1 carry the link0/link1 UARTs.
+#   DRV0 DRV1   "Driver" — the two FOC gate-driver boards, one per motor.
+#               Called DRV rather than ESC because the part is itself named
+#               "B-G431B-ESC1", so an ESC1 designator would be ambiguous with
+#               the board model.
+#   MOT0 MOT1   "Motor" — the two BLDC gimbal motors driving the differential.
+#   ENC0 ENC1   "Encoder" — AS5047P absolute magnetic angle sensors, one per
+#               motor, reporting rotor angle for commutation and mixing.
+#   MCU         "Microcontroller Unit" — the Blackpill stick controller. Reads
+#               both nodes, unmixes to pitch/roll, sends USB HID to the host.
+#   POT         "Potentiometer" — a variable resistor. The throttle lever moves
+#               its wiper, so lever position reads out as a voltage.
+#   PSU         "Power Supply Unit" — the 12 V DC supply.
+#   SPLIT       Not an abbreviation. The power distribution point, or star
+#               point, where the 12 V rail splits to both driver boards.
+#   HOST        The USB host, i.e. the PC. In USB terms the host is the machine
+#               in charge and the stick is the device.
+#   W_*         "W" is the conventional designator letter for a wire or cable,
+#               so W_LINK0 is "the cable carrying link0".
+#
+# A fuller version of this table, with the specific parts, is in README.md.
 #
 # Render:  wireviz docs/wiring/ffb-harness.yml
 # Outputs: ffb-harness.svg / .png / .html / .bom.tsv

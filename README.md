@@ -41,6 +41,10 @@ its own wire/connector BOM.
 
 <sub>Click through for the SVG, which stays sharp when zoomed.</sub>
 
+The box labels (`DRV0`, `MCU`, `POT`, `PSU`, `HOST`, …) are conventional
+electronics abbreviations; they're spelled out in
+[`docs/wiring/README.md`](docs/wiring/README.md#designators).
+
 Pins shown as `TBD-n` are genuinely undetermined, not placeholders for
 convenience — see [`docs/wiring/NOTES.md`](docs/wiring/NOTES.md), which also
 records five firmware/BOM discrepancies that writing the harness down exposed.
