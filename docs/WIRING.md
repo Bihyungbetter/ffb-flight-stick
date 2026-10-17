@@ -4,8 +4,6 @@
 
 Everything runs off one Blackpill. It drives both SimpleFOC shields, reads both AS5047P encoders on one SPI bus, and reads the throttle pot on an analog pin. The shields are Arduino shaped, so they don't plug into the Blackpill. I wire them with jumpers to the header pins listed below.
 
-The diagram is drawn by `wiring_diagram.py`. If the wiring changes, edit the script and run `python docs/wiring_diagram.py`.
-
 ## Shield solder pads
 
 Each shield picks its pins with solder pads. The two boards are set differently so they can still be stacked if you want.
