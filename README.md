@@ -21,7 +21,7 @@ Here is inspiration that I took. https://www.youtube.com/shorts/7KhpVU0RoAo
 
 ![Wiring diagram](docs/wiring.svg)
 
-Pin tables, solder-pad settings and power notes: [docs/WIRING.md](docs/WIRING.md).
+The full pin tables and power notes are in [docs/WIRING.md](docs/WIRING.md).
 
 ## Pictures
 <img width="3296" height="2547" alt="Flight Sim Master Assembly (4)" src="https://github.com/user-attachments/assets/09d1983d-284f-40d0-b0bd-5abb75de9913" />

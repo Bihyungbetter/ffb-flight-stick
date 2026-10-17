@@ -116,9 +116,9 @@ def render_wires():
 
 
 # ---------------------------------------------------------------- header
-text(30, 42, "FFB Flight Stick — Wiring Diagram", 24, weight="bold")
-text(30, 66, "1× WeAct Blackpill STM32F411CEU6 driving 2× SimpleFOC Shield v2.0.4 + 2× AS5047P (per BOM.csv). "
-     "Pins are grouped by function, not physical header order.", 13, color="#555")
+text(30, 42, "FFB Flight Stick Wiring", 24, weight="bold")
+text(30, 66, "One WeAct Blackpill (STM32F411CEU6) running two SimpleFOC Shield v2.0.4 boards and two AS5047P encoders, "
+     "same parts as BOM.csv. Pins are grouped by what they do, not where they sit on the header.", 13, color="#555")
 
 # ---------------------------------------------------------------- PC / USB
 box(660, 92, 180, 48, fill="#eef3f8")
@@ -134,8 +134,8 @@ box(BPx, BPy, BPw, BPh, fill="#e9eef9")
 text(750, 208, "WeAct Blackpill", 14, "middle", "bold")
 text(750, 224, "STM32F411CEU6", 11, "middle", color="#555")
 text(750, 520, "Powered from USB only", 10, "middle", color="#555", italic=True)
-text(750, 534, "(3.3 V logic — pins are", 10, "middle", color="#555", italic=True)
-text(750, 548, "NOT 5 V tolerant on ADC)", 10, "middle", color="#555", italic=True)
+text(750, 534, "3.3 V logic, analog pins", 10, "middle", color="#555", italic=True)
+text(750, 548, "aren't 5 V tolerant", 10, "middle", color="#555", italic=True)
 
 left_pins = [  # (y, label, color)
     (270, "PA8 · TIM1_CH1", C["pwm"]),
@@ -194,8 +194,8 @@ s2_pins = [(580, "D9 · PWM A", C["pwm"]), (610, "D3 · PWM B", C["pwm"]),
            (640, "D11 · PWM C", C["pwm"]), (670, "D7 · EN", C["en"]), (705, "GND", C["gnd"])]
 shield(200, 1, "M0", "A=D10 B=D5 C=D6 EN=D8", s1_pins, (280, 310, 340), "bottom")
 shield(500, 2, "M1", "A=D9 B=D3 C=D11 EN=D7", s2_pins, (590, 620, 650), "top")
-text(410, 748, "LM7808 regulator pad OPEN on both shields —", 10, "middle", color="#b00", italic=True)
-text(410, 762, "do NOT wire shield VIN / 5V to the Blackpill", 10, "middle", color="#b00", italic=True)
+text(410, 748, "Leave the LM7808 regulator pad open on both shields.", 10, "middle", color="#b00", italic=True)
+text(410, 762, "Don't wire shield VIN or 5V to the Blackpill.", 10, "middle", color="#b00", italic=True)
 
 for pins, nets in ((s1_pins, "s1"), (s2_pins, "s2")):
     for i, (y, label, col) in enumerate(pins):
@@ -315,15 +315,13 @@ pin(SX, 730, C["gnd"])
 box(30, 790, 1340, 200, fill="#fafafa", rx=10)
 text(50, 815, "Notes", 14, weight="bold")
 notes = [
-    "1. Shields are jumper-wired to the Blackpill (they don't plug into it). Bridge the PWM/EN pads listed on each shield; "
-    "leave the LM7808 regulator pad open.",
-    "2. One common ground: PSU −, both shield GNDs, Blackpill GND, both AS5047P GNDs and the pot. Every 3V3/GND flag ties to the Blackpill 3V3/GND pins.",
-    "3. Power the Blackpill from USB only. Never connect a shield's VIN or 5V pin to it — VIN carries 8 V when the regulator pad is bridged.",
-    "4. Current sense (shield A0–A3) is unused by the voltage-mode torque loop — leave it unconnected. If added later: ADC-range pad = 3.3 V, "
-    "and use spare ADC pins PA1, PA2, PA3, PB0.",
-    "5. Motor phase order a/b/c doesn't matter: initFOC() finds direction and electrical zero. Keep SPI leads short (≤ 20 cm), each twisted with a GND.",
-    "6. SW1 cuts 12 V to both shields — keep it in reach as a kill switch for the stick.",
-    "7. The firmware in firmware/ still targets the earlier B-G431B-ESC1 + UART design; it needs porting to this single-MCU pin map.",
+    "1. The shields don't plug into the Blackpill, so they're jumper wired. Bridge the PWM/EN pads listed on each shield and leave the LM7808 regulator pad open.",
+    "2. Every ground is common: supply −, both shields, Blackpill, both encoders and the pot. The 3V3 and GND flags all go to the Blackpill's 3V3/GND pins.",
+    "3. The Blackpill is powered over USB only. Don't connect a shield's VIN or 5V pin to it, since VIN is 8 V when the regulator pad is bridged.",
+    "4. Current sense (A0 to A3) isn't used by the voltage-mode torque loop, so it's left unwired. If you add it, set the ADC range pad to 3.3 V and use PA1, PA2, PA3, PB0.",
+    "5. Phase order a/b/c doesn't matter because initFOC() finds direction and zero. Keep SPI wires under about 20 cm and twist each one with a ground.",
+    "6. SW1 cuts 12 V to both shields. Keep it within reach in case the stick misbehaves.",
+    "7. The code in firmware/ is still for the old B-G431B-ESC1 + UART setup and needs porting to this pin map.",
 ]
 for i, n in enumerate(notes):
     text(50, 840 + i * 20, n, 11.5)
