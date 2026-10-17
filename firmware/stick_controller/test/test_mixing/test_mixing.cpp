@@ -4,6 +4,11 @@
 
 using namespace ffb;
 
+// Unity calls these around every test; it needs them defined even when there
+// is nothing to set up or tear down.
+void setUp() {}
+void tearDown() {}
+
 void test_mix_pure_pitch() {
     MotorTorques m = mixTorques(AxisTorques{2.0f, 0.0f});
     TEST_ASSERT_EQUAL_FLOAT(1.0f, m.m0);
