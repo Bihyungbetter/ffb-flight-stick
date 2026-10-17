@@ -2,7 +2,7 @@
 import math
 from pathlib import Path
 
-W, H = 1400, 1010
+W, H = 1350, 790
 FONT = "Helvetica, Arial, sans-serif"
 
 C = {
@@ -33,7 +33,7 @@ def text(x, y, s, size=12, anchor="start", weight="normal", color="#222", italic
     )
 
 
-def box(x, y, w, h, fill="#f7f7f7", stroke=C["box"], rx=8, dash=None):
+def box(x, y, w, h, fill="#ffffff", stroke=C["box"], rx=3, dash=None):
     d = f' stroke-dasharray="{dash}"' if dash else ""
     out.append(
         f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" '
@@ -116,86 +116,77 @@ def render_wires():
 
 
 # ---------------------------------------------------------------- header
-text(30, 42, "FFB Flight Stick Wiring", 24, weight="bold")
-text(30, 66, "One WeAct Blackpill (STM32F411CEU6) running two SimpleFOC Shield v2.0.4 boards and two AS5047P encoders, "
-     "same parts as BOM.csv. Pins are grouped by what they do, not where they sit on the header.", 13, color="#555")
+text(30, 44, "FFB flight stick wiring", 22, weight="bold")
 
 # ---------------------------------------------------------------- PC / USB
-box(660, 92, 180, 48, fill="#eef3f8")
-text(750, 112, "PC", 13, "middle", "bold")
-text(750, 129, "USB HID + 5 V power", 11, "middle", color="#555")
+box(690, 96, 120, 36)
+text(750, 119, "PC", 13, "middle", "bold")
 out.append(f'<rect x="728" y="172" width="44" height="14" rx="4" fill="#ccc" stroke="{C["box"]}" stroke-width="1.5"/>')
-wire("usb", [(750, 140), (750, 172)], C["usb"], 4)
-text(758, 162, "USB-C", 10, color="#555")
+wire("usb", [(750, 132), (750, 172)], C["usb"], 4)
+text(758, 158, "USB", 10, color="#555")
 
 # ---------------------------------------------------------------- Blackpill
 BPx, BPy, BPw, BPh = 640, 186, 220, 574
-box(BPx, BPy, BPw, BPh, fill="#e9eef9")
-text(750, 208, "WeAct Blackpill", 14, "middle", "bold")
-text(750, 224, "STM32F411CEU6", 11, "middle", color="#555")
-text(750, 520, "Powered from USB only", 10, "middle", color="#555", italic=True)
-text(750, 534, "3.3 V logic, analog pins", 10, "middle", color="#555", italic=True)
-text(750, 548, "aren't 5 V tolerant", 10, "middle", color="#555", italic=True)
+box(BPx, BPy, BPw, BPh)
+text(750, 210, "Blackpill", 14, "middle", "bold")
+text(750, 226, "F411CEU6", 11, "middle", color="#555")
 
 left_pins = [  # (y, label, color)
-    (270, "PA8 · TIM1_CH1", C["pwm"]),
-    (300, "PA9 · TIM1_CH2", C["pwm"]),
-    (330, "PA10 · TIM1_CH3", C["pwm"]),
-    (360, "PB12 · EN0", C["en"]),
+    (270, "PA8", C["pwm"]),
+    (300, "PA9", C["pwm"]),
+    (330, "PA10", C["pwm"]),
+    (360, "PB12", C["en"]),
     (400, "GND", C["gnd"]),
-    (580, "PB6 · TIM4_CH1", C["pwm"]),
-    (610, "PB7 · TIM4_CH2", C["pwm"]),
-    (640, "PB8 · TIM4_CH3", C["pwm"]),
-    (670, "PB13 · EN1", C["en"]),
+    (580, "PB6", C["pwm"]),
+    (610, "PB7", C["pwm"]),
+    (640, "PB8", C["pwm"]),
+    (670, "PB13", C["en"]),
     (705, "GND", C["gnd"]),
 ]
 for y, label, col in left_pins:
     text(BPx + 10, y + 4, label, 11)
 
 right_pins = [
-    (250, "CS0 · PA4", C["cs"]),
-    (275, "SCK · PA5", C["sck"]),
-    (300, "MISO · PA6", C["miso"]),
-    (325, "MOSI · PA7", C["mosi"]),
-    (375, "CS1 · PB10", C["cs"]),
+    (250, "PA4", C["cs"]),
+    (275, "PA5", C["sck"]),
+    (300, "PA6", C["miso"]),
+    (325, "PA7", C["mosi"]),
+    (375, "PB10", C["cs"]),
     (425, "3V3", C["v33"]),
     (450, "GND", C["gnd"]),
-    (700, "ADC · PB1", C["adc"]),
+    (700, "PB1", C["adc"]),
 ]
 for y, label, col in right_pins:
     text(BPx + BPw - 10, y + 4, label, 11, "end")
-text(BPx + BPw - 10, 248 - 20, "SPI1", 10, "end", "bold", "#555")
 
 # ---------------------------------------------------------------- shields
 def shield(y0, n, motor, pads, sig_pins, ph_ys, pwr_edge):
     x0, w, h = 300, 220, 230
-    box(x0, y0, w, h, fill="#eaf5ea")
+    box(x0, y0, w, h)
     ty = y0 + 22 if pwr_edge == "bottom" else y0 + 38
-    text(x0 + w / 2, ty, f"SimpleFOC Shield v2.0.4 #{n}", 13, "middle", "bold")
-    text(x0 + w / 2, ty + 16, f"drives {motor} · pads: {pads}", 10, "middle", color="#555")
+    text(x0 + w / 2, ty, f"SimpleFOC shield {n}", 13, "middle", "bold")
     for y, label, _ in sig_pins:
         text(x0 + w - 10, y + 4, label, 11, "end")
-    text(x0 + 10, ph_ys[0] - 14, "TB_M1", 10, weight="bold", color="#555")
+    text(x0 + 10, ph_ys[0] - 14, "motor", 10, color="#555")
     for y, ph in zip(ph_ys, "abc"):
         text(x0 + 10, y + 4, ph, 11)
     if pwr_edge == "bottom":
         text(350, y0 + h - 8, "+", 12, "middle", "bold", C["v12"])
         text(390, y0 + h - 8, "−", 12, "middle", "bold", C["gnd"])
-        text(402, y0 + h - 9, "TB_PWR", 10, "start", "bold", "#555")
+        text(402, y0 + h - 9, "12V in", 10, "start", "normal", "#555")
     else:
         text(350, y0 + 18, "+", 12, "middle", "bold", C["v12"])
         text(390, y0 + 18, "−", 12, "middle", "bold", C["gnd"])
-        text(402, y0 + 17, "TB_PWR", 10, "start", "bold", "#555")
+        text(402, y0 + 17, "12V in", 10, "start", "normal", "#555")
 
 
-s1_pins = [(270, "D10 · PWM A", C["pwm"]), (300, "D5 · PWM B", C["pwm"]),
-           (330, "D6 · PWM C", C["pwm"]), (360, "D8 · EN", C["en"]), (400, "GND", C["gnd"])]
-s2_pins = [(580, "D9 · PWM A", C["pwm"]), (610, "D3 · PWM B", C["pwm"]),
-           (640, "D11 · PWM C", C["pwm"]), (670, "D7 · EN", C["en"]), (705, "GND", C["gnd"])]
+s1_pins = [(270, "D10 PWMA", C["pwm"]), (300, "D5 PWMB", C["pwm"]),
+           (330, "D6 PWMC", C["pwm"]), (360, "D8 EN", C["en"]), (400, "GND", C["gnd"])]
+s2_pins = [(580, "D9 PWMA", C["pwm"]), (610, "D3 PWMB", C["pwm"]),
+           (640, "D11 PWMC", C["pwm"]), (670, "D7 EN", C["en"]), (705, "GND", C["gnd"])]
 shield(200, 1, "M0", "A=D10 B=D5 C=D6 EN=D8", s1_pins, (280, 310, 340), "bottom")
 shield(500, 2, "M1", "A=D9 B=D3 C=D11 EN=D7", s2_pins, (590, 620, 650), "top")
-text(410, 748, "Leave the LM7808 regulator pad open on both shields.", 10, "middle", color="#b00", italic=True)
-text(410, 762, "Don't wire shield VIN or 5V to the Blackpill.", 10, "middle", color="#b00", italic=True)
+text(410, 750, "regulator pad open, don't connect VIN/5V to the blackpill", 10, "middle", color="#b00")
 
 for pins, nets in ((s1_pins, "s1"), (s2_pins, "s2")):
     for i, (y, label, col) in enumerate(pins):
@@ -204,12 +195,10 @@ for pins, nets in ((s1_pins, "s1"), (s2_pins, "s2")):
 # ---------------------------------------------------------------- motors
 def motor(cy, name, sensor, ph_ys):
     cx, r = 160, 55
-    out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#f3f3f3" stroke="{C["box"]}" stroke-width="2"/>')
+    out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#ffffff" stroke="{C["box"]}" stroke-width="2"/>')
     out.append(f'<circle cx="{cx}" cy="{cy}" r="18" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="3 3"/>')
     text(cx, cy - 22, name, 16, "middle", "bold")
     text(cx, cy + 40, "GM5208-24", 10, "middle", color="#555")
-    text(cx, cy + r + 18, f"diametric magnet on shaft", 10, "middle", color="#555", italic=True)
-    text(cx, cy + r + 31, f"→ read by {sensor}", 10, "middle", color="#555", italic=True)
     for y, ph in zip(ph_ys, "ABC"):
         dy = y - cy
         x_edge = cx + math.sqrt(r * r - dy * dy)
@@ -221,9 +210,8 @@ motor(310, "M0", "AS5047P #0", (280, 310, 340))
 motor(620, "M1", "AS5047P #1", (590, 620, 650))
 
 # ---------------------------------------------------------------- PSU + switch
-box(30, 440, 180, 70, fill="#fbeaea")
-text(120, 466, "12 V DC supply", 13, "middle", "bold")
-text(120, 482, "≥ 3 A · not in BOM", 10, "middle", color="#555")
+box(30, 440, 180, 70)
+text(120, 472, "12V 3A supply", 13, "middle", "bold")
 text(200, 459, "+", 12, "end", "bold", C["v12"])
 text(200, 499, "−", 12, "end", "bold", C["gnd"])
 wire("v12", [(210, 455), (240, 455)], C["v12"], 3)
@@ -232,17 +220,15 @@ wire("v12c", [(350, 430), (350, 500)], C["v12"], 3)
 out.append(f'<circle cx="240" cy="455" r="3.5" fill="#fff" stroke="{C["v12"]}" stroke-width="2"/>')
 out.append(f'<circle cx="276" cy="455" r="3.5" fill="#fff" stroke="{C["v12"]}" stroke-width="2"/>')
 out.append(f'<line x1="242" y1="453" x2="272" y2="440" stroke="{C["v12"]}" stroke-width="3" stroke-linecap="round"/>')
-text(258, 432, "SW1 power / kill", 10, "middle", "bold", C["v12"])
+text(258, 432, "switch", 10, "middle", "normal", C["v12"])
 wire("gnd-psu", [(210, 495), (390, 495)], C["gnd"], 3)
 wire("gnd-psu2", [(390, 430), (390, 500)], C["gnd"], 3)
 
 # ---------------------------------------------------------------- AS5047P sensors
 SX = 1060
 def sensor(y0, h, n, motor, pin_rows, pwr_rows):
-    box(SX, y0, 200, h, fill="#fdf3e6")
-    text(SX + 130, y0 + 26, f"AS5047P #{n}", 13, "middle", "bold")
-    text(SX + 130, y0 + 42, f"on {motor} rotor", 10, "middle", color="#555")
-    text(SX + 130, y0 + 56, "set for 3.3 V supply", 10, "middle", color="#b00", italic=True)
+    box(SX, y0, 200, h)
+    text(SX + 130, y0 + 26, f"AS5047P ({motor})", 13, "middle", "bold")
     for y, label in pin_rows:
         text(SX + 10, y + 4, label, 11)
     for y, label in pwr_rows:
@@ -262,11 +248,10 @@ wire("mosi", [(960, 325), (960, 530), (SX, 530)], C["mosi"])
 wire("cs1", [(860, 375), (930, 375), (930, 555), (SX, 555)], C["cs"])
 
 # ---------------------------------------------------------------- throttle pot
-box(SX, 650, 200, 110, fill="#f3ecf7")
+box(SX, 650, 200, 110)
 text(SX + 125, 676, "Throttle pot", 13, "middle", "bold")
-text(SX + 125, 692, "Bourns PDB181", 10, "middle", color="#555")
-text(SX + 125, 705, "10 kΩ linear", 10, "middle", color="#555")
-for y, label in ((670, "3 (end)"), (700, "2 wiper"), (730, "1 (end)")):
+text(SX + 125, 694, "10k", 10, "middle", color="#555")
+for y, label in ((670, "3"), (700, "2 wiper"), (730, "1")):
     text(SX + 10, y + 4, label, 11)
 # resistor symbol with wiper arrow
 zx, zy = SX + 125, 722
@@ -310,31 +295,6 @@ flag_3v3(SX, 670)
 pin(SX, 670, C["v33"])
 flag_gnd(SX, 730)
 pin(SX, 730, C["gnd"])
-
-# ---------------------------------------------------------------- notes + legend
-box(30, 790, 1340, 200, fill="#fafafa", rx=10)
-text(50, 815, "Notes", 14, weight="bold")
-notes = [
-    "1. The shields don't plug into the Blackpill, so they're jumper wired. Bridge the PWM/EN pads listed on each shield and leave the LM7808 regulator pad open.",
-    "2. Every ground is common: supply −, both shields, Blackpill, both encoders and the pot. The 3V3 and GND flags all go to the Blackpill's 3V3/GND pins.",
-    "3. The Blackpill is powered over USB only. Don't connect a shield's VIN or 5V pin to it, since VIN is 8 V when the regulator pad is bridged.",
-    "4. Current sense (A0 to A3) isn't used by the voltage-mode torque loop, so it's left unwired. If you add it, set the ADC range pad to 3.3 V and use PA1, PA2, PA3, PB0.",
-    "5. Phase order a/b/c doesn't matter because initFOC() finds direction and zero. Keep SPI wires under about 20 cm and twist each one with a ground.",
-    "6. SW1 cuts 12 V to both shields. Keep it within reach in case the stick misbehaves.",
-    "7. The code in firmware/ is still for the old B-G431B-ESC1 + UART setup and needs porting to this pin map.",
-]
-for i, n in enumerate(notes):
-    text(50, 840 + i * 20, n, 11.5)
-
-legend = [("12 V", C["v12"]), ("GND", C["gnd"]), ("3V3", C["v33"]), ("PWM", C["pwm"]), ("Enable", C["en"]),
-          ("SPI SCK", C["sck"]), ("SPI MISO", C["miso"]), ("SPI MOSI", C["mosi"]), ("SPI CS", C["cs"]),
-          ("Analog", C["adc"]), ("Motor phase", C["phase"]), ("USB", C["usb"])]
-box(1000, 92, 370, 118, fill="#fafafa", rx=10)
-text(1016, 112, "Legend", 12, weight="bold")
-for i, (name, col) in enumerate(legend):
-    lx, ly = 1016 + (i // 4) * 120, 132 + (i % 4) * 20
-    out.append(f'<line x1="{lx}" y1="{ly}" x2="{lx + 26}" y2="{ly}" stroke="{col}" stroke-width="4" stroke-linecap="round"/>')
-    text(lx + 34, ly + 4, name, 11)
 
 svg = (
     f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '

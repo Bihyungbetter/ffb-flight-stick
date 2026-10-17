@@ -1,127 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1010" viewBox="0 0 1400 1010" font-family="Helvetica, Arial, sans-serif">
-<rect width="1400" height="1010" fill="#ffffff"/>
-<text x="30" y="42" font-size="24" text-anchor="start" font-weight="bold" fill="#222">FFB Flight Stick Wiring</text>
-<text x="30" y="66" font-size="13" text-anchor="start" font-weight="normal" fill="#555">One WeAct Blackpill (STM32F411CEU6) running two SimpleFOC Shield v2.0.4 boards and two AS5047P encoders, same parts as BOM.csv. Pins are grouped by what they do, not where they sit on the header.</text>
-<rect x="660" y="92" width="180" height="48" rx="8" fill="#eef3f8" stroke="#333333" stroke-width="2"/>
-<text x="750" y="112" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">PC</text>
-<text x="750" y="129" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">USB HID + 5 V power</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="790" viewBox="0 0 1350 790" font-family="Helvetica, Arial, sans-serif">
+<rect width="1350" height="790" fill="#ffffff"/>
+<text x="30" y="44" font-size="22" text-anchor="start" font-weight="bold" fill="#222">FFB flight stick wiring</text>
+<rect x="690" y="96" width="120" height="36" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="750" y="119" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">PC</text>
 <rect x="728" y="172" width="44" height="14" rx="4" fill="#ccc" stroke="#333333" stroke-width="1.5"/>
-<text x="758" y="162" font-size="10" text-anchor="start" font-weight="normal" fill="#555">USB-C</text>
-<rect x="640" y="186" width="220" height="574" rx="8" fill="#e9eef9" stroke="#333333" stroke-width="2"/>
-<text x="750" y="208" font-size="14" text-anchor="middle" font-weight="bold" fill="#222">WeAct Blackpill</text>
-<text x="750" y="224" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">STM32F411CEU6</text>
-<text x="750" y="520" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">Powered from USB only</text>
-<text x="750" y="534" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">3.3 V logic, analog pins</text>
-<text x="750" y="548" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">aren't 5 V tolerant</text>
-<text x="650" y="274" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA8 · TIM1_CH1</text>
-<text x="650" y="304" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA9 · TIM1_CH2</text>
-<text x="650" y="334" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA10 · TIM1_CH3</text>
-<text x="650" y="364" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB12 · EN0</text>
+<text x="758" y="158" font-size="10" text-anchor="start" font-weight="normal" fill="#555">USB</text>
+<rect x="640" y="186" width="220" height="574" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="750" y="210" font-size="14" text-anchor="middle" font-weight="bold" fill="#222">Blackpill</text>
+<text x="750" y="226" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">F411CEU6</text>
+<text x="650" y="274" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA8</text>
+<text x="650" y="304" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA9</text>
+<text x="650" y="334" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PA10</text>
+<text x="650" y="364" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB12</text>
 <text x="650" y="404" font-size="11" text-anchor="start" font-weight="normal" fill="#222">GND</text>
-<text x="650" y="584" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB6 · TIM4_CH1</text>
-<text x="650" y="614" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB7 · TIM4_CH2</text>
-<text x="650" y="644" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB8 · TIM4_CH3</text>
-<text x="650" y="674" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB13 · EN1</text>
+<text x="650" y="584" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB6</text>
+<text x="650" y="614" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB7</text>
+<text x="650" y="644" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB8</text>
+<text x="650" y="674" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PB13</text>
 <text x="650" y="709" font-size="11" text-anchor="start" font-weight="normal" fill="#222">GND</text>
-<text x="850" y="254" font-size="11" text-anchor="end" font-weight="normal" fill="#222">CS0 · PA4</text>
-<text x="850" y="279" font-size="11" text-anchor="end" font-weight="normal" fill="#222">SCK · PA5</text>
-<text x="850" y="304" font-size="11" text-anchor="end" font-weight="normal" fill="#222">MISO · PA6</text>
-<text x="850" y="329" font-size="11" text-anchor="end" font-weight="normal" fill="#222">MOSI · PA7</text>
-<text x="850" y="379" font-size="11" text-anchor="end" font-weight="normal" fill="#222">CS1 · PB10</text>
+<text x="850" y="254" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PA4</text>
+<text x="850" y="279" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PA5</text>
+<text x="850" y="304" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PA6</text>
+<text x="850" y="329" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PA7</text>
+<text x="850" y="379" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PB10</text>
 <text x="850" y="429" font-size="11" text-anchor="end" font-weight="normal" fill="#222">3V3</text>
 <text x="850" y="454" font-size="11" text-anchor="end" font-weight="normal" fill="#222">GND</text>
-<text x="850" y="704" font-size="11" text-anchor="end" font-weight="normal" fill="#222">ADC · PB1</text>
-<text x="850" y="228" font-size="10" text-anchor="end" font-weight="bold" fill="#555">SPI1</text>
-<rect x="300" y="200" width="220" height="230" rx="8" fill="#eaf5ea" stroke="#333333" stroke-width="2"/>
-<text x="410.0" y="222" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">SimpleFOC Shield v2.0.4 #1</text>
-<text x="410.0" y="238" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">drives M0 · pads: A=D10 B=D5 C=D6 EN=D8</text>
-<text x="510" y="274" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D10 · PWM A</text>
-<text x="510" y="304" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D5 · PWM B</text>
-<text x="510" y="334" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D6 · PWM C</text>
-<text x="510" y="364" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D8 · EN</text>
+<text x="850" y="704" font-size="11" text-anchor="end" font-weight="normal" fill="#222">PB1</text>
+<rect x="300" y="200" width="220" height="230" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="410.0" y="222" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">SimpleFOC shield 1</text>
+<text x="510" y="274" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D10 PWMA</text>
+<text x="510" y="304" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D5 PWMB</text>
+<text x="510" y="334" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D6 PWMC</text>
+<text x="510" y="364" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D8 EN</text>
 <text x="510" y="404" font-size="11" text-anchor="end" font-weight="normal" fill="#222">GND</text>
-<text x="310" y="266" font-size="10" text-anchor="start" font-weight="bold" fill="#555">TB_M1</text>
+<text x="310" y="266" font-size="10" text-anchor="start" font-weight="normal" fill="#555">motor</text>
 <text x="310" y="284" font-size="11" text-anchor="start" font-weight="normal" fill="#222">a</text>
 <text x="310" y="314" font-size="11" text-anchor="start" font-weight="normal" fill="#222">b</text>
 <text x="310" y="344" font-size="11" text-anchor="start" font-weight="normal" fill="#222">c</text>
 <text x="350" y="422" font-size="12" text-anchor="middle" font-weight="bold" fill="#d62728">+</text>
 <text x="390" y="422" font-size="12" text-anchor="middle" font-weight="bold" fill="#222222">−</text>
-<text x="402" y="421" font-size="10" text-anchor="start" font-weight="bold" fill="#555">TB_PWR</text>
-<rect x="300" y="500" width="220" height="230" rx="8" fill="#eaf5ea" stroke="#333333" stroke-width="2"/>
-<text x="410.0" y="538" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">SimpleFOC Shield v2.0.4 #2</text>
-<text x="410.0" y="554" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">drives M1 · pads: A=D9 B=D3 C=D11 EN=D7</text>
-<text x="510" y="584" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D9 · PWM A</text>
-<text x="510" y="614" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D3 · PWM B</text>
-<text x="510" y="644" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D11 · PWM C</text>
-<text x="510" y="674" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D7 · EN</text>
+<text x="402" y="421" font-size="10" text-anchor="start" font-weight="normal" fill="#555">12V in</text>
+<rect x="300" y="500" width="220" height="230" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="410.0" y="538" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">SimpleFOC shield 2</text>
+<text x="510" y="584" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D9 PWMA</text>
+<text x="510" y="614" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D3 PWMB</text>
+<text x="510" y="644" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D11 PWMC</text>
+<text x="510" y="674" font-size="11" text-anchor="end" font-weight="normal" fill="#222">D7 EN</text>
 <text x="510" y="709" font-size="11" text-anchor="end" font-weight="normal" fill="#222">GND</text>
-<text x="310" y="576" font-size="10" text-anchor="start" font-weight="bold" fill="#555">TB_M1</text>
+<text x="310" y="576" font-size="10" text-anchor="start" font-weight="normal" fill="#555">motor</text>
 <text x="310" y="594" font-size="11" text-anchor="start" font-weight="normal" fill="#222">a</text>
 <text x="310" y="624" font-size="11" text-anchor="start" font-weight="normal" fill="#222">b</text>
 <text x="310" y="654" font-size="11" text-anchor="start" font-weight="normal" fill="#222">c</text>
 <text x="350" y="518" font-size="12" text-anchor="middle" font-weight="bold" fill="#d62728">+</text>
 <text x="390" y="518" font-size="12" text-anchor="middle" font-weight="bold" fill="#222222">−</text>
-<text x="402" y="517" font-size="10" text-anchor="start" font-weight="bold" fill="#555">TB_PWR</text>
-<text x="410" y="748" font-size="10" text-anchor="middle" font-weight="normal" fill="#b00" font-style="italic">Leave the LM7808 regulator pad open on both shields.</text>
-<text x="410" y="762" font-size="10" text-anchor="middle" font-weight="normal" fill="#b00" font-style="italic">Don't wire shield VIN or 5V to the Blackpill.</text>
-<circle cx="160" cy="310" r="55" fill="#f3f3f3" stroke="#333333" stroke-width="2"/>
+<text x="402" y="517" font-size="10" text-anchor="start" font-weight="normal" fill="#555">12V in</text>
+<text x="410" y="750" font-size="10" text-anchor="middle" font-weight="normal" fill="#b00">regulator pad open, don't connect VIN/5V to the blackpill</text>
+<circle cx="160" cy="310" r="55" fill="#ffffff" stroke="#333333" stroke-width="2"/>
 <circle cx="160" cy="310" r="18" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="3 3"/>
 <text x="160" y="288" font-size="16" text-anchor="middle" font-weight="bold" fill="#222">M0</text>
 <text x="160" y="350" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">GM5208-24</text>
-<text x="160" y="383" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">diametric magnet on shaft</text>
-<text x="160" y="396" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">→ read by AS5047P #0</text>
 <text x="250" y="275" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">A</text>
 <text x="250" y="305" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">B</text>
 <text x="250" y="335" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">C</text>
-<circle cx="160" cy="620" r="55" fill="#f3f3f3" stroke="#333333" stroke-width="2"/>
+<circle cx="160" cy="620" r="55" fill="#ffffff" stroke="#333333" stroke-width="2"/>
 <circle cx="160" cy="620" r="18" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="3 3"/>
 <text x="160" y="598" font-size="16" text-anchor="middle" font-weight="bold" fill="#222">M1</text>
 <text x="160" y="660" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">GM5208-24</text>
-<text x="160" y="693" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">diametric magnet on shaft</text>
-<text x="160" y="706" font-size="10" text-anchor="middle" font-weight="normal" fill="#555" font-style="italic">→ read by AS5047P #1</text>
 <text x="250" y="585" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">A</text>
 <text x="250" y="615" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">B</text>
 <text x="250" y="645" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">C</text>
-<rect x="30" y="440" width="180" height="70" rx="8" fill="#fbeaea" stroke="#333333" stroke-width="2"/>
-<text x="120" y="466" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">12 V DC supply</text>
-<text x="120" y="482" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">≥ 3 A · not in BOM</text>
+<rect x="30" y="440" width="180" height="70" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="120" y="472" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">12V 3A supply</text>
 <text x="200" y="459" font-size="12" text-anchor="end" font-weight="bold" fill="#d62728">+</text>
 <text x="200" y="499" font-size="12" text-anchor="end" font-weight="bold" fill="#222222">−</text>
 <circle cx="240" cy="455" r="3.5" fill="#fff" stroke="#d62728" stroke-width="2"/>
 <circle cx="276" cy="455" r="3.5" fill="#fff" stroke="#d62728" stroke-width="2"/>
 <line x1="242" y1="453" x2="272" y2="440" stroke="#d62728" stroke-width="3" stroke-linecap="round"/>
-<text x="258" y="432" font-size="10" text-anchor="middle" font-weight="bold" fill="#d62728">SW1 power / kill</text>
-<rect x="1060" y="225" width="200" height="165" rx="8" fill="#fdf3e6" stroke="#333333" stroke-width="2"/>
-<text x="1190" y="251" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">AS5047P #0</text>
-<text x="1190" y="267" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">on M0 rotor</text>
-<text x="1190" y="281" font-size="10" text-anchor="middle" font-weight="normal" fill="#b00" font-style="italic">set for 3.3 V supply</text>
+<text x="258" y="432" font-size="10" text-anchor="middle" font-weight="normal" fill="#d62728">switch</text>
+<rect x="1060" y="225" width="200" height="165" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="1190" y="251" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">AS5047P (M0)</text>
 <text x="1070" y="254" font-size="11" text-anchor="start" font-weight="normal" fill="#222">CSn</text>
 <text x="1070" y="279" font-size="11" text-anchor="start" font-weight="normal" fill="#222">CLK</text>
 <text x="1070" y="304" font-size="11" text-anchor="start" font-weight="normal" fill="#222">MISO</text>
 <text x="1070" y="329" font-size="11" text-anchor="start" font-weight="normal" fill="#222">MOSI</text>
 <text x="1250" y="349" font-size="11" text-anchor="end" font-weight="normal" fill="#222">VDD</text>
 <text x="1250" y="374" font-size="11" text-anchor="end" font-weight="normal" fill="#222">GND</text>
-<rect x="1060" y="455" width="200" height="165" rx="8" fill="#fdf3e6" stroke="#333333" stroke-width="2"/>
-<text x="1190" y="481" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">AS5047P #1</text>
-<text x="1190" y="497" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">on M1 rotor</text>
-<text x="1190" y="511" font-size="10" text-anchor="middle" font-weight="normal" fill="#b00" font-style="italic">set for 3.3 V supply</text>
+<rect x="1060" y="455" width="200" height="165" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="1190" y="481" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">AS5047P (M1)</text>
 <text x="1070" y="484" font-size="11" text-anchor="start" font-weight="normal" fill="#222">CLK</text>
 <text x="1070" y="509" font-size="11" text-anchor="start" font-weight="normal" fill="#222">MISO</text>
 <text x="1070" y="534" font-size="11" text-anchor="start" font-weight="normal" fill="#222">MOSI</text>
 <text x="1070" y="559" font-size="11" text-anchor="start" font-weight="normal" fill="#222">CSn</text>
 <text x="1250" y="579" font-size="11" text-anchor="end" font-weight="normal" fill="#222">VDD</text>
 <text x="1250" y="604" font-size="11" text-anchor="end" font-weight="normal" fill="#222">GND</text>
-<rect x="1060" y="650" width="200" height="110" rx="8" fill="#f3ecf7" stroke="#333333" stroke-width="2"/>
+<rect x="1060" y="650" width="200" height="110" rx="3" fill="#ffffff" stroke="#333333" stroke-width="2"/>
 <text x="1185" y="676" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Throttle pot</text>
-<text x="1185" y="692" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">Bourns PDB181</text>
-<text x="1185" y="705" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">10 kΩ linear</text>
-<text x="1070" y="674" font-size="11" text-anchor="start" font-weight="normal" fill="#222">3 (end)</text>
+<text x="1185" y="694" font-size="10" text-anchor="middle" font-weight="normal" fill="#555">10k</text>
+<text x="1070" y="674" font-size="11" text-anchor="start" font-weight="normal" fill="#222">3</text>
 <text x="1070" y="704" font-size="11" text-anchor="start" font-weight="normal" fill="#222">2 wiper</text>
-<text x="1070" y="734" font-size="11" text-anchor="start" font-weight="normal" fill="#222">1 (end)</text>
+<text x="1070" y="734" font-size="11" text-anchor="start" font-weight="normal" fill="#222">1</text>
 <polyline points="1145,722 1153,716 1161,728 1169,716 1177,728 1185,716 1193,728 1201,716 1209,728 1217,716 1225,722" fill="none" stroke="#333333" stroke-width="1.6"/>
 <line x1="1185" y1="744" x2="1185" y2="731" stroke="#8c564b" stroke-width="1.6"/>
 <polygon points="1181,734 1189,734 1185,728" fill="#8c564b"/>
-<path d="M 750 140 L 750 172" fill="none" stroke="#555555" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 750 132 L 750 172" fill="none" stroke="#555555" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 520 270 L 640 270" fill="none" stroke="#1f77b4" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 520 300 L 640 300" fill="none" stroke="#1f77b4" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 520 330 L 640 330" fill="none" stroke="#1f77b4" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -242,39 +223,4 @@
 <line x1="1030" y1="728" x2="1030" y2="732" stroke="#222222" stroke-width="2"/>
 <text x="1024" y="734" font-size="11" text-anchor="end" font-weight="bold" fill="#222222">GND</text>
 <circle cx="1060" cy="730" r="3.5" fill="#fff" stroke="#222222" stroke-width="2"/>
-<rect x="30" y="790" width="1340" height="200" rx="10" fill="#fafafa" stroke="#333333" stroke-width="2"/>
-<text x="50" y="815" font-size="14" text-anchor="start" font-weight="bold" fill="#222">Notes</text>
-<text x="50" y="840" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">1. The shields don't plug into the Blackpill, so they're jumper wired. Bridge the PWM/EN pads listed on each shield and leave the LM7808 regulator pad open.</text>
-<text x="50" y="860" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">2. Every ground is common: supply −, both shields, Blackpill, both encoders and the pot. The 3V3 and GND flags all go to the Blackpill's 3V3/GND pins.</text>
-<text x="50" y="880" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">3. The Blackpill is powered over USB only. Don't connect a shield's VIN or 5V pin to it, since VIN is 8 V when the regulator pad is bridged.</text>
-<text x="50" y="900" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">4. Current sense (A0 to A3) isn't used by the voltage-mode torque loop, so it's left unwired. If you add it, set the ADC range pad to 3.3 V and use PA1, PA2, PA3, PB0.</text>
-<text x="50" y="920" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">5. Phase order a/b/c doesn't matter because initFOC() finds direction and zero. Keep SPI wires under about 20 cm and twist each one with a ground.</text>
-<text x="50" y="940" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">6. SW1 cuts 12 V to both shields. Keep it within reach in case the stick misbehaves.</text>
-<text x="50" y="960" font-size="11.5" text-anchor="start" font-weight="normal" fill="#222">7. The code in firmware/ is still for the old B-G431B-ESC1 + UART setup and needs porting to this pin map.</text>
-<rect x="1000" y="92" width="370" height="118" rx="10" fill="#fafafa" stroke="#333333" stroke-width="2"/>
-<text x="1016" y="112" font-size="12" text-anchor="start" font-weight="bold" fill="#222">Legend</text>
-<line x1="1016" y1="132" x2="1042" y2="132" stroke="#d62728" stroke-width="4" stroke-linecap="round"/>
-<text x="1050" y="136" font-size="11" text-anchor="start" font-weight="normal" fill="#222">12 V</text>
-<line x1="1016" y1="152" x2="1042" y2="152" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
-<text x="1050" y="156" font-size="11" text-anchor="start" font-weight="normal" fill="#222">GND</text>
-<line x1="1016" y1="172" x2="1042" y2="172" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/>
-<text x="1050" y="176" font-size="11" text-anchor="start" font-weight="normal" fill="#222">3V3</text>
-<line x1="1016" y1="192" x2="1042" y2="192" stroke="#1f77b4" stroke-width="4" stroke-linecap="round"/>
-<text x="1050" y="196" font-size="11" text-anchor="start" font-weight="normal" fill="#222">PWM</text>
-<line x1="1136" y1="132" x2="1162" y2="132" stroke="#9467bd" stroke-width="4" stroke-linecap="round"/>
-<text x="1170" y="136" font-size="11" text-anchor="start" font-weight="normal" fill="#222">Enable</text>
-<line x1="1136" y1="152" x2="1162" y2="152" stroke="#2ca02c" stroke-width="4" stroke-linecap="round"/>
-<text x="1170" y="156" font-size="11" text-anchor="start" font-weight="normal" fill="#222">SPI SCK</text>
-<line x1="1136" y1="172" x2="1162" y2="172" stroke="#17a2b8" stroke-width="4" stroke-linecap="round"/>
-<text x="1170" y="176" font-size="11" text-anchor="start" font-weight="normal" fill="#222">SPI MISO</text>
-<line x1="1136" y1="192" x2="1162" y2="192" stroke="#b8860b" stroke-width="4" stroke-linecap="round"/>
-<text x="1170" y="196" font-size="11" text-anchor="start" font-weight="normal" fill="#222">SPI MOSI</text>
-<line x1="1256" y1="132" x2="1282" y2="132" stroke="#e377c2" stroke-width="4" stroke-linecap="round"/>
-<text x="1290" y="136" font-size="11" text-anchor="start" font-weight="normal" fill="#222">SPI CS</text>
-<line x1="1256" y1="152" x2="1282" y2="152" stroke="#8c564b" stroke-width="4" stroke-linecap="round"/>
-<text x="1290" y="156" font-size="11" text-anchor="start" font-weight="normal" fill="#222">Analog</text>
-<line x1="1256" y1="172" x2="1282" y2="172" stroke="#6b6b6b" stroke-width="4" stroke-linecap="round"/>
-<text x="1290" y="176" font-size="11" text-anchor="start" font-weight="normal" fill="#222">Motor phase</text>
-<line x1="1256" y1="192" x2="1282" y2="192" stroke="#555555" stroke-width="4" stroke-linecap="round"/>
-<text x="1290" y="196" font-size="11" text-anchor="start" font-weight="normal" fill="#222">USB</text>
 </svg>
