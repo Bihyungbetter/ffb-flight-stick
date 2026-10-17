@@ -13,8 +13,15 @@ Here is inspiration that I took. https://www.youtube.com/shorts/7KhpVU0RoAo
 
 - `CAD/` — CAD / STEP exports of the mechanical assembly
 - `PCB/` — no custom PCB in this design (off-the-shelf driver boards)
+- `docs/` — wiring diagram and pin tables ([WIRING.md](docs/WIRING.md))
 - `firmware/` — per-motor torque control, differential mixing, and USB joystick output
 - `BOM.csv` — full bill of materials
+
+## Wiring
+
+![Wiring diagram](docs/wiring.svg)
+
+The full pin tables and power notes are in [docs/WIRING.md](docs/WIRING.md).
 
 ## Pictures
 <img width="3296" height="2547" alt="Flight Sim Master Assembly (4)" src="https://github.com/user-attachments/assets/09d1983d-284f-40d0-b0bd-5abb75de9913" />
